@@ -2682,7 +2682,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1982805143}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2743,7 +2743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73dd3a86529f2494dbe3c0b702eb57e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadingSpeed: 1
+  fadingDelay: 2
+  fadingSpeed: 2.5
 --- !u!1001 &563990223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4156,7 +4157,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1982805143}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -4239,7 +4240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: []
   itemPrefab: {fileID: 6944890083191320848, guid: a18e0302d9986ed45a29aa829453a2f2, type: 3}
-  shownPositionY: 145
+  shownPositionY: 200
   hiddenPositionY: -145
   slideSpeed: 10
   isShown: 0
@@ -4779,7 +4780,7 @@ RectTransform:
   - {fileID: 1854166864}
   - {fileID: 1471306929}
   m_Father: {fileID: 1982805143}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -6838,6 +6839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryId: 2
+  inventoryName: Bottle of Water
   icon: {fileID: 21300000, guid: 3a481bc5b3972b54ab4918d5226622af, type: 3}
 --- !u!114 &1357694832
 MonoBehaviour:
@@ -8035,6 +8037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryId: 3
+  inventoryName: Skull
   icon: {fileID: 21300000, guid: 587503b6015abc741ad5147fff8f4a06, type: 3}
 --- !u!114 &1591797670
 MonoBehaviour:
@@ -8275,6 +8278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryId: 0
+  inventoryName: Cell Key
   icon: {fileID: 21300000, guid: e30e7f1121c83ed469e6242c11d18e05, type: 3}
 --- !u!82 &1640510778
 AudioSource:
@@ -8516,6 +8520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryId: 1
+  inventoryName: Bottle
   icon: {fileID: 21300000, guid: bbc53608878294d46a1e3b694ee0a1fb, type: 3}
 --- !u!114 &1644327144
 MonoBehaviour:
@@ -10048,9 +10053,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 557184743}
   - {fileID: 865593404}
   - {fileID: 790322435}
+  - {fileID: 557184743}
   - {fileID: 1003355115}
   m_Father: {fileID: 0}
   m_RootOrder: 9

@@ -5,23 +5,38 @@ using UnityEngine.UI;
 
 public class LogText : MonoBehaviour
 {
-    private Text logText;
+    [HideInInspector] private Text logText;
+    [HideInInspector] private float delayTime;
+    [HideInInspector] private Color textColor;
 
-    [SerializeField] private float fadingSpeed = 1f;
-
-    private float opacity = 0f;
+    [Header("Fading")]
+    [SerializeField] private float fadingDelay = 2f;
+    [SerializeField] private float fadingSpeed = 2.5f;
 
     private void Start()
     {
         logText = GetComponent<Text>();
+        textColor = logText.color;
     }
 
     private void Update()
     {
-        Color textColor = logText.color;
+        if (textColor.a > 0f)
+        {
+            HandleFading();
+        }
+    }
 
-        textColor.a = Mathf.Lerp(opacity, 0f, fadingSpeed * Time.deltaTime);
-        opacity = textColor.a;
+    private void HandleFading()
+    {
+        if (delayTime <= 0f)
+        {
+            textColor.a = Mathf.Lerp(textColor.a, 0f, fadingSpeed * Time.deltaTime);
+        }
+        else
+        {
+            delayTime -= Time.deltaTime;
+        }
 
         logText.color = textColor;
     }
@@ -29,6 +44,7 @@ public class LogText : MonoBehaviour
     public void SetText(string text)
     {
         logText.text = text;
-        opacity = 1f;
+        textColor.a = 1f;
+        delayTime = fadingDelay;
     }
 }
