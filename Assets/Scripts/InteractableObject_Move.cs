@@ -42,7 +42,7 @@ public class InteractableObject_Move : InteractableObject
     {
         if (!CheckUsedItem(usedItem))
         {
-            wrongItemSoundEffect.Play();
+            player.wrongItemSoundEffect.Play();
             return;
         }
 

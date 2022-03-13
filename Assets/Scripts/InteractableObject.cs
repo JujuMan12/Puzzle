@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InteractableObject : MonoBehaviour
 {
+    [HideInInspector] protected PlayerInteraction player;
     [HideInInspector] protected Inventory inventoryObject;
     [HideInInspector] protected LogText logText;
 
@@ -20,10 +21,10 @@ public class InteractableObject : MonoBehaviour
 
     [Header("Sound Effects")]
     [SerializeField] protected AudioSource interactionSoundEffect;
-    [SerializeField] protected AudioSource wrongItemSoundEffect;
 
     virtual public void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteraction>();
         inventoryObject = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
         logText = GameObject.FindGameObjectWithTag("Log").GetComponent<LogText>();
     }

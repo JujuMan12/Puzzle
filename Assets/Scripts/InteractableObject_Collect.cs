@@ -18,7 +18,7 @@ public class InteractableObject_Collect : InteractableObject
     {
         if (!CheckUsedItem(usedItem))
         {
-            wrongItemSoundEffect.Play();
+            player.wrongItemSoundEffect.Play();
             return;
         }
 

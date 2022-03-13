@@ -16,6 +16,9 @@ public class PlayerInteraction : MonoBehaviour
     [Header("Parameters")]
     [SerializeField] public float interactionRadius = 2.5f;
 
+    [Header("Sound Effects")]
+    [SerializeField] public AudioSource wrongItemSoundEffect;
+
     private void Start()
     {
         inventoryObject = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();

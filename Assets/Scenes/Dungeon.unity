@@ -938,8 +938,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fead3fd97e127946ac78cb59d5e5770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 1003355114}
   isShown: 0
+  pauseMenuUI: {fileID: 1003355114}
 --- !u!4 &204844188
 Transform:
   m_ObjectHideFlags: 0
@@ -2101,8 +2101,8 @@ GameObject:
   - component: {fileID: 528652241}
   - component: {fileID: 528652240}
   m_Layer: 0
-  m_Name: BGM
-  m_TagString: Untagged
+  m_Name: BGM and Ambience
+  m_TagString: GlobalAudio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4227,11 +4227,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: []
+  isShown: 0
   itemPrefab: {fileID: 6944890083191320848, guid: a18e0302d9986ed45a29aa829453a2f2, type: 3}
   shownPositionY: 200
   hiddenPositionY: -145
   slideSpeed: 10
-  isShown: 0
 --- !u!1001 &813324002
 PrefabInstance:
   m_ObjectHideFlags: 0

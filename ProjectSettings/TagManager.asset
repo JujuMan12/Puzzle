@@ -12,6 +12,7 @@ TagManager:
   - Inventory Icon
   - Interact Icon
   - Pause Menu
+  - GlobalAudio
   layers:
   - Default
   - TransparentFX
