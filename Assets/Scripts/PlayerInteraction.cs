@@ -65,7 +65,7 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Input.GetButtonDown("Inventory"))
         {
-            if (!inventoryObject.isShown)
+            if (!inventoryObject.isShown && target?.requiredItemId != InventoryItem.ItemId.none)
             {
                 inventoryObject.DrawInventory(target);
             }
@@ -85,7 +85,7 @@ public class PlayerInteraction : MonoBehaviour
         if (canInteract)
         {
             interactIconColor.a = 1f;
-            if (target.requiredItem != null)
+            if (target.requiredItemId != InventoryItem.ItemId.none)
             {
                 inventoryIconColor.a = 1f;
             }
@@ -93,6 +93,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 inventoryIconColor.a = 0f;
             }
+
             if (target.analyzeText != "")
             {
                 analyzeIconColor.a = 1f;

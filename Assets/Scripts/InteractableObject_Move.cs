@@ -12,7 +12,7 @@ public class InteractableObject_Move : InteractableObject
     [SerializeField] private Vector3 positionChange;
     [SerializeField] private Vector3 rotationChange;
 
-    [Header("Speed")]
+    [Header("Move Speed")]
     [SerializeField] private float movementSpeed = 100f;
     [SerializeField] private float rotationSpeed = 100f;
 
