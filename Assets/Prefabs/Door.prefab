@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5229250249989403496}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -69,7 +69,7 @@ MonoBehaviour:
   shouldSumPosition: 1
   shouldSumRotation: 1
   positionChange: {x: 0, y: 0, z: 0}
-  rotationChange: {x: 0, y: 0, z: 0}
+  rotationChange: {x: 0, y: 60, z: 0}
 --- !u!82 &4416849702435840948
 AudioSource:
   m_ObjectHideFlags: 0

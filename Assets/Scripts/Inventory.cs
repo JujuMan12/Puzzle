@@ -6,6 +6,7 @@ public class Inventory : MonoBehaviour
 {
     public List<InventoryItem> inventory;
     private InteractableObject target;
+    private LogText logText;
 
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] private float shownPositionY = 145f;
@@ -13,6 +14,11 @@ public class Inventory : MonoBehaviour
     [SerializeField] private float slideSpeed = 10f;
 
     public bool isShown = false;
+
+    private void Start()
+    {
+        logText = GameObject.FindGameObjectWithTag("Log").GetComponent<LogText>();
+    }
 
     private void Update()
     {
@@ -64,6 +70,7 @@ public class Inventory : MonoBehaviour
     public void Close()
     {
         isShown = false;
+        logText.RemoveDelay();
     }
 
     public void ApplyItemOnTarget(InventoryItem item)

@@ -2744,7 +2744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadingDelay: 2
-  fadingSpeed: 2.5
+  fadingSpeed: 5
 --- !u!1001 &563990223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4060,21 +4060,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 251512908}
     m_Modifications:
     - target: {fileID: 5229250249989403494, guid: 70d7b6b58b2867e4891fb2f6d17fd3ac, type: 3}
-      propertyPath: newRotation.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5229250249989403494, guid: 70d7b6b58b2867e4891fb2f6d17fd3ac, type: 3}
       propertyPath: objectToInteract
       value: 
       objectReference: {fileID: 1132453409}
-    - target: {fileID: 5229250249989403494, guid: 70d7b6b58b2867e4891fb2f6d17fd3ac, type: 3}
-      propertyPath: rotationChange.y
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 5229250249989403494, guid: 70d7b6b58b2867e4891fb2f6d17fd3ac, type: 3}
-      propertyPath: interactionSoundEffect
-      value: 
-      objectReference: {fileID: 1401009352}
     - target: {fileID: 5229250249989403496, guid: 70d7b6b58b2867e4891fb2f6d17fd3ac, type: 3}
       propertyPath: m_Name
       value: Door (1)
@@ -5318,21 +5306,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 251512908}
     m_Modifications:
     - target: {fileID: 5229250249989403494, guid: 70d7b6b58b2867e4891fb2f6d17fd3ac, type: 3}
-      propertyPath: newRotation.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5229250249989403494, guid: 70d7b6b58b2867e4891fb2f6d17fd3ac, type: 3}
       propertyPath: objectToInteract
       value: 
       objectReference: {fileID: 1772709337}
-    - target: {fileID: 5229250249989403494, guid: 70d7b6b58b2867e4891fb2f6d17fd3ac, type: 3}
-      propertyPath: rotationChange.y
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 5229250249989403494, guid: 70d7b6b58b2867e4891fb2f6d17fd3ac, type: 3}
-      propertyPath: interactionSoundEffect
-      value: 
-      objectReference: {fileID: 1491647927}
     - target: {fileID: 5229250249989403496, guid: 70d7b6b58b2867e4891fb2f6d17fd3ac, type: 3}
       propertyPath: m_Name
       value: Door
@@ -7252,11 +7228,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7001071775699255823, guid: 7b9bd4ff48795cf42b9f4a6c3b8a49c1, type: 3}
   m_PrefabInstance: {fileID: 1382756460}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1401009352 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4416849702435840948, guid: 70d7b6b58b2867e4891fb2f6d17fd3ac, type: 3}
-  m_PrefabInstance: {fileID: 781627350}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1426505308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7579,11 +7550,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3827979668741089945, guid: 3095027673429ac43888f84f7de0b80e, type: 3}
   m_PrefabInstance: {fileID: 1484996715}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1491647927 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4416849702435840948, guid: 70d7b6b58b2867e4891fb2f6d17fd3ac, type: 3}
-  m_PrefabInstance: {fileID: 1044855323}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1532035838
 GameObject:
@@ -10500,10 +10466,6 @@ PrefabInstance:
       propertyPath: objectToInteract
       value: 
       objectReference: {fileID: 279967982}
-    - target: {fileID: 614327945170638621, guid: 2a31a66fdb9c4954faa90a0516db3e90, type: 3}
-      propertyPath: rotationChange.y
-      value: 110
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a31a66fdb9c4954faa90a0516db3e90, type: 3}
 --- !u!1001 &2098268937125024942

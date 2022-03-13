@@ -47,4 +47,9 @@ public class LogText : MonoBehaviour
         textColor.a = 1f;
         delayTime = fadingDelay;
     }
+
+    public void RemoveDelay()
+    {
+        delayTime = 0f;
+    }
 }

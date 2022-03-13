@@ -4,10 +4,39 @@ using UnityEngine;
 
 public class InteractableObject_Move : InteractableObject
 {
-    [SerializeField] private bool shouldSumPosition = true;
-    [SerializeField] private bool shouldSumRotation = true;
+    [HideInInspector] private bool isActivated = false;
+    [HideInInspector] private Vector3 targetPosition;
+    [HideInInspector] private Quaternion targetRotation;
+
+    [Header("Move Parameters")]
     [SerializeField] private Vector3 positionChange;
     [SerializeField] private Vector3 rotationChange;
+
+    [Header("Speed")]
+    [SerializeField] private float movementSpeed = 100f;
+    [SerializeField] private float rotationSpeed = 100f;
+
+    override public void Start()
+    {
+        base.Start();
+        targetPosition = objectToInteract.transform.position;
+        targetRotation = objectToInteract.transform.rotation;
+    }
+
+    private void Update()
+    {
+        if (isActivated)
+        {
+            Vector3 currentPosition = objectToInteract.transform.position;
+            Quaternion currentRotation = objectToInteract.transform.rotation;
+
+            currentPosition = Vector3.MoveTowards(currentPosition, targetPosition, movementSpeed * Time.deltaTime);
+            currentRotation = Quaternion.RotateTowards(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            objectToInteract.transform.position = currentPosition;
+            objectToInteract.transform.rotation = currentRotation;
+        }
+    }
 
     override public void Interact(InventoryItem usedItem)
     {
@@ -19,8 +48,9 @@ public class InteractableObject_Move : InteractableObject
 
         interactionSoundEffect.Play();
 
-        ChangePositionAndRotation();
-        GetComponent<BoxCollider>().enabled = false;
+        targetPosition += positionChange;
+        targetRotation = Quaternion.Euler(rotationChange) * objectToInteract.transform.rotation;
+        isActivated = true;
 
         if (usedItem != null)
         {
@@ -28,34 +58,7 @@ public class InteractableObject_Move : InteractableObject
             Destroy(usedItem.gameObject);
         }
 
-        StartCoroutine(DestroyObject());
-    }
-
-    private void ChangePositionAndRotation()
-    {
-        if (shouldSumPosition)
-        {
-            objectToInteract.transform.position += positionChange;
-        }
-        else
-        {
-            objectToInteract.transform.position = positionChange;
-        }
-
-        if (shouldSumRotation)
-        {
-            objectToInteract.transform.rotation = Quaternion.Euler(rotationChange) * objectToInteract.transform.rotation;
-        }
-        else
-        {
-            objectToInteract.transform.rotation = Quaternion.Euler(rotationChange);
-        }
-    }
-
-    private IEnumerator DestroyObject()
-    {
-        yield return new WaitForSeconds(2);
-
-        Destroy(gameObject);
+        GetComponent<BoxCollider>().enabled = false;
+        Destroy(gameObject, 3f);
     }
 }
