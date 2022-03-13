@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    private string interactTipText;
-    private InteractableObject target;
-    private Inventory inventoryObject;
-    private Image interactIcon;
-    private Image inventoryIcon;
-    private Image analyzeIcon;
+    [HideInInspector] private string interactTipText;
+    [HideInInspector] private InteractableObject target;
+    [HideInInspector] private Inventory inventoryObject;
+    [HideInInspector] private Image interactIcon;
+    [HideInInspector] private Image inventoryIcon;
+    [HideInInspector] private Image analyzeIcon;
+    [HideInInspector] private bool canInteract;
 
+    [Header("Parameters")]
     [SerializeField] public float interactionRadius = 2.5f;
-
-    private bool canInteract = false;
 
     private void Start()
     {

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class InteractableObject_Collect : InteractableObject
 {
-    private Transform inventoryItemsFolder;
-    private InventoryItem inventoryItem;
+    [HideInInspector] private Transform inventoryItemsFolder;
+    [HideInInspector] private InventoryItem inventoryItem;
 
     override public void Start()
     {

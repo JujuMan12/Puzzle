@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class InventoryItemUI : MonoBehaviour, IPointerEnterHandler
 {
-    public InventoryItem inventoryItem;
-    private LogText logText;
+    [HideInInspector] public InventoryItem inventoryItem;
+    [HideInInspector] private LogText logText;
 
     private void Start()
     {

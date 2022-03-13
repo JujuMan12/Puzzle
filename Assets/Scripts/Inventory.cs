@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<InventoryItem> inventory;
-    private InteractableObject target;
-    private LogText logText;
+    [HideInInspector] public List<InventoryItem> inventory;
+    [HideInInspector] private InteractableObject target;
+    [HideInInspector] private LogText logText;
+    [HideInInspector] public bool isShown;
 
+    [Header("Visualization")]
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] private float shownPositionY = 145f;
     [SerializeField] private float hiddenPositionY = -145f;
     [SerializeField] private float slideSpeed = 10f;
-
-    public bool isShown = false;
 
     private void Start()
     {
@@ -70,15 +70,15 @@ public class Inventory : MonoBehaviour
     public void Close()
     {
         isShown = false;
-        logText.RemoveDelay();
+        logText.RemoveText();
     }
 
     public void ApplyItemOnTarget(InventoryItem item)
     {
         if (target != null)
         {
-            target.Interact(item);
             Close();
+            target.Interact(item);
         }
         else
         {

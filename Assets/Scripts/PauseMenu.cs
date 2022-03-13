@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseMenuUI;
+    [HideInInspector] public bool isShown;
 
-    public bool isShown = false;
+    [Header("General")]
+    [SerializeField] private GameObject pauseMenuUI;
 
     private void Update()
     {

@@ -48,8 +48,8 @@ public class LogText : MonoBehaviour
         delayTime = fadingDelay;
     }
 
-    public void RemoveDelay()
+    public void RemoveText()
     {
-        delayTime = 0f;
+        logText.text = "";
     }
 }

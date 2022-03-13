@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour
 {
+    [Header("Sound Effects")]
     [SerializeField] private AudioSource ButtonSoundEffect;
 
     private void Start()

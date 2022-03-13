@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private CharacterController controller;
-    private Vector3 velocity;
-    private float defaultHeight;
+    [HideInInspector] private CharacterController controller;
+    [HideInInspector] private Vector3 velocity;
+    [HideInInspector] private float defaultHeight;
+    [HideInInspector] private bool isCrouching;
 
+    [Header("Characteristics")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float sprintMult = 2f;
     [SerializeField] private float crouchMult = 0.5f;
     [SerializeField] private float jumpForce = 1f;
     [SerializeField] private float gravity = -9.81f;
+
+    [Header("Environment Check")]
     [SerializeField] private Transform ceilingCheck;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask environmentMask;
-
-    private bool isCrouching = false;
 
     private void Start()
     {
