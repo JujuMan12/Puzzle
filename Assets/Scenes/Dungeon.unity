@@ -166,7 +166,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &25915045
 MonoBehaviour:
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 75724698}
   - component: {fileID: 75724697}
   m_Layer: 5
-  m_Name: New Game Button
+  m_Name: Resume Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -589,6 +589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d401b8fd6d51cab46a8260a82487f2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiController: {fileID: 1982805144}
   ButtonSoundEffect: {fileID: 75724697}
 --- !u!114 &75724699
 MonoBehaviour:
@@ -636,7 +637,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 75724698}
         m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
-        m_MethodName: StartNewGame
+        m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -909,51 +910,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7586093321967573247, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
   m_PrefabInstance: {fileID: 1920020600}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &204844186
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 204844188}
-  - component: {fileID: 204844187}
-  m_Layer: 0
-  m_Name: PauseMenu
-  m_TagString: Pause Menu
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &204844187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 204844186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fead3fd97e127946ac78cb59d5e5770, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isShown: 0
-  pauseMenuUI: {fileID: 1003355114}
---- !u!4 &204844188
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 204844186}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &209950904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,7 +1421,7 @@ Transform:
   - {fileID: 965403683}
   - {fileID: 734045466}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &408667257
 PrefabInstance:
@@ -2686,7 +2642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.0009765625, y: 36.404602}
+  m_AnchoredPosition: {x: -0.0009765625, y: 36.40454}
   m_SizeDelta: {x: -0.0020752, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &557184744
@@ -4229,8 +4185,8 @@ MonoBehaviour:
   inventory: []
   isShown: 0
   itemPrefab: {fileID: 6944890083191320848, guid: a18e0302d9986ed45a29aa829453a2f2, type: 3}
-  shownPositionY: 200
-  hiddenPositionY: -145
+  shownPosition: {x: 0, y: 200}
+  hiddenPosition: {x: 0, y: -145}
   slideSpeed: 10
 --- !u!1001 &813324002
 PrefabInstance:
@@ -4443,6 +4399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d401b8fd6d51cab46a8260a82487f2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiController: {fileID: 0}
   ButtonSoundEffect: {fileID: 815969052}
 --- !u!114 &815969054
 MonoBehaviour:
@@ -6406,7 +6363,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1302208573
 GameObject:
@@ -7255,7 +7212,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Game
+  m_Text: Resume
 --- !u!222 &1532584746
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8129,7 +8086,7 @@ Transform:
   - {fileID: 392484753}
   - {fileID: 609785132}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1906357046
 PrefabInstance:
@@ -8529,7 +8486,7 @@ Transform:
   - {fileID: 209950905}
   - {fileID: 251512908}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1939394251
 PrefabInstance:
@@ -8850,9 +8807,10 @@ GameObject:
   - component: {fileID: 1982805142}
   - component: {fileID: 1982805141}
   - component: {fileID: 1982805140}
+  - component: {fileID: 1982805144}
   m_Layer: 5
   m_Name: UI
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8934,13 +8892,27 @@ RectTransform:
   - {fileID: 557184743}
   - {fileID: 1003355115}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1982805144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982805139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fead3fd97e127946ac78cb59d5e5770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuIsShown: 0
+  pauseMenuUI: {fileID: 1003355114}
 --- !u!1001 &2035634283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9440,7 +9412,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2098268936313313426, guid: 3f609361ef2bf114f84b0dd514d24221, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2098268936313313426, guid: 3f609361ef2bf114f84b0dd514d24221, type: 3}
       propertyPath: m_LocalPosition.x

@@ -7,7 +7,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     [HideInInspector] private string interactTipText;
     [HideInInspector] private InteractableObject target;
-    [HideInInspector] private Inventory inventoryObject;
+    [HideInInspector] private InventoryUI inventoryUI;
     [HideInInspector] private Image interactIcon;
     [HideInInspector] private Image inventoryIcon;
     [HideInInspector] private Image analyzeIcon;
@@ -21,7 +21,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Start()
     {
-        inventoryObject = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+        inventoryUI = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryUI>();
 
         interactIcon = GameObject.FindGameObjectWithTag("Interact Icon").GetComponent<Image>();
         inventoryIcon = GameObject.FindGameObjectWithTag("Inventory Icon").GetComponent<Image>();
@@ -54,7 +54,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (canInteract && !inventoryObject.isShown)
+        if (canInteract && !inventoryUI.isShown)
         {
             if (Input.GetButtonDown("Interact"))
             {
@@ -68,13 +68,13 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Input.GetButtonDown("Inventory"))
         {
-            if (!inventoryObject.isShown && target?.requiredItemId != InventoryItem.ItemId.none)
+            if (!inventoryUI.isShown && target?.requiredItemId != InventoryItem.ItemId.none)
             {
-                inventoryObject.DrawInventory(target);
+                inventoryUI.DrawInventory(target);
             }
             else
             {
-                inventoryObject.Close();
+                inventoryUI.Close();
             }
         }
     }

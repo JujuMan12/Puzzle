@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class InteractableObject : MonoBehaviour
 {
     [HideInInspector] protected PlayerInteraction player;
-    [HideInInspector] protected Inventory inventoryObject;
+    [HideInInspector] protected InventoryUI inventoryUI;
     [HideInInspector] protected LogText logText;
 
     [Header("Interaction")]
@@ -25,7 +25,7 @@ public class InteractableObject : MonoBehaviour
     virtual public void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteraction>();
-        inventoryObject = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+        inventoryUI = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryUI>();
         logText = GameObject.FindGameObjectWithTag("Log").GetComponent<LogText>();
     }
 

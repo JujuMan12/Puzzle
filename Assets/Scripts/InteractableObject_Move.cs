@@ -54,7 +54,7 @@ public class InteractableObject_Move : InteractableObject
 
         if (usedItem != null)
         {
-            inventoryObject.RemoveItem(usedItem);
+            inventoryUI.RemoveItem(usedItem);
             Destroy(usedItem.gameObject);
         }
 

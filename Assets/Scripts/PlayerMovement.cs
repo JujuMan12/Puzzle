@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [HideInInspector] private CharacterController controller;
+    [HideInInspector] private InventoryUI inventoryUI;
+    [HideInInspector] private UIController uiController;
     [HideInInspector] private Vector3 velocity;
     [HideInInspector] private float defaultHeight;
     [HideInInspector] private bool isCrouching;
@@ -24,17 +26,22 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        inventoryUI = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryUI>();
+        uiController = GameObject.FindGameObjectWithTag("UI").GetComponent<UIController>();
         defaultHeight = transform.localScale.y;
     }
 
     private void Update()
     {
-        HandleMovement();
-        HandleVelocity();
-
-        if (Input.GetButtonDown("Crouch") && IsOnGround())
+        if (!inventoryUI.isShown && !uiController.pauseMenuIsShown)
         {
-            SwitchCrouching(!isCrouching);
+            HandleMovement();
+            HandleVelocity();
+
+            if (Input.GetButtonDown("Crouch") && IsOnGround())
+            {
+                SwitchCrouching(!isCrouching);
+            }
         }
     }
 

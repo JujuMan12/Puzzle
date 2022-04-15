@@ -30,8 +30,8 @@ public class InteractableObject_Collect : InteractableObject
         }
 
         GetComponent<BoxCollider>().enabled = false;
-        inventoryObject.RemoveItem(usedItem);
-        inventoryObject.AddItem(inventoryItem);
+        inventoryUI.RemoveItem(usedItem);
+        inventoryUI.AddItem(inventoryItem);
         transform.SetParent(inventoryItemsFolder);
     }
 }

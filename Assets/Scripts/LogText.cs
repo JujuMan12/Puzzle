@@ -19,7 +19,7 @@ public class LogText : MonoBehaviour
         textColor = logText.color;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (textColor.a > 0f)
         {

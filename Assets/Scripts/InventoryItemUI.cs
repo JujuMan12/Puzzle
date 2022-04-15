@@ -22,6 +22,6 @@ public class InventoryItemUI : MonoBehaviour, IPointerEnterHandler
 
     public void ChooseItem()
     {
-        transform.parent.GetComponent<Inventory>().ApplyItemOnTarget(inventoryItem);
+        transform.parent.GetComponent<InventoryUI>().ApplyItemOnTarget(inventoryItem);
     }
 }

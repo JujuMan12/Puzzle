@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [HideInInspector] private Transform player;
-    [HideInInspector] private Inventory inventoryObject;
-    [HideInInspector] private PauseMenu pauseMenu;
+    [HideInInspector] private InventoryUI inventoryUI;
+    [HideInInspector] private UIController uiController;
     [HideInInspector] private float rotationX;
 
     [Header("Mouse")]
@@ -17,29 +17,20 @@ public class CameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        inventoryObject = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
-        pauseMenu = GameObject.FindGameObjectWithTag("Pause Menu").GetComponent<PauseMenu>();
+        inventoryUI = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryUI>();
+        uiController = GameObject.FindGameObjectWithTag("UI").GetComponent<UIController>();
     }
 
     private void Update()
     {
-        if (!inventoryObject.isShown && !pauseMenu.isShown)
+        if (!inventoryUI.isShown && !uiController.pauseMenuIsShown)
         {
             HandleRotation();
-        }
-        else if (Cursor.lockState == CursorLockMode.Locked)
-        {
-            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 
     private void HandleRotation()
     {
-        if (Cursor.lockState == CursorLockMode.Confined)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 

@@ -2,38 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class InventoryUI : MonoBehaviour
 {
     [HideInInspector] public List<InventoryItem> inventory;
     [HideInInspector] private InteractableObject target;
     [HideInInspector] private LogText logText;
     [HideInInspector] public bool isShown;
+    [HideInInspector] private Vector2 targetPosition;
 
     [Header("Visualization")]
     [SerializeField] private GameObject itemPrefab;
-    [SerializeField] private float shownPositionY = 145f;
-    [SerializeField] private float hiddenPositionY = -145f;
+    [SerializeField] private float shownPosY = 200f;
+    [SerializeField] private float hiddenPosY = -145f;
     [SerializeField] private float slideSpeed = 10f;
 
     private void Start()
     {
         logText = GameObject.FindGameObjectWithTag("Log").GetComponent<LogText>();
+        targetPosition = new Vector2(transform.position.x, hiddenPosY);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        float posY = transform.position.y;
+        HandlePosition();
+    }
 
-        if (isShown)
-        {
-            posY = Mathf.Lerp(posY, shownPositionY, slideSpeed * Time.deltaTime);
-        }
-        else
-        {
-            posY = Mathf.Lerp(posY, hiddenPositionY, slideSpeed * Time.deltaTime);
-        }
-
-        transform.position = new Vector3(transform.position.x, posY, transform.position.z);
+    private void HandlePosition()
+    {
+        transform.position = Vector3.Lerp(transform.position, targetPosition, slideSpeed * Time.deltaTime);
     }
 
     public void AddItem(InventoryItem newItem)
@@ -49,6 +45,8 @@ public class Inventory : MonoBehaviour
     public void DrawInventory(InteractableObject newTarget)
     {
         isShown = true;
+        targetPosition = new Vector2(transform.position.x, shownPosY);
+        Cursor.lockState = CursorLockMode.Confined;
 
         foreach (Transform item in transform)
         {
@@ -70,7 +68,9 @@ public class Inventory : MonoBehaviour
     public void Close()
     {
         isShown = false;
+        targetPosition = new Vector2(transform.position.x, hiddenPosY);
         logText.RemoveText();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ApplyItemOnTarget(InventoryItem item)

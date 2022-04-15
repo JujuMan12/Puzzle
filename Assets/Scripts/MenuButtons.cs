@@ -5,12 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour
 {
+    [Header("UI")]
+    [SerializeField] private UIController uiController;
+
     [Header("Sound Effects")]
     [SerializeField] private AudioSource ButtonSoundEffect;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    public void ResumeGame()
+    {
+        uiController.ChangePauseMenuState(false);
     }
 
     public void StartNewGame()
