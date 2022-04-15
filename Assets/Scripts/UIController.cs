@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour
 
     [Header("Elements")]
     [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private GameObject pauseMenuBG;
 
     private void Update()
     {
@@ -21,15 +22,16 @@ public class UIController : MonoBehaviour
     {
         pauseMenuIsShown = state;
         pauseMenuUI.SetActive(state);
+        pauseMenuBG.SetActive(state);
 
         if (state)
         {
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.Confined;
         }
         else
         {
-            Time.timeScale = 1f;
+            //Time.timeScale = 1f;
             Cursor.lockState = CursorLockMode.Locked;
         }
     }

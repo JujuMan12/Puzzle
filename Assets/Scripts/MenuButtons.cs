@@ -7,13 +7,14 @@ public class MenuButtons : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private UIController uiController;
+    [SerializeField] private SceneTransition sceneTransition;
 
     [Header("Sound Effects")]
     [SerializeField] private AudioSource ButtonSoundEffect;
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Confined; //TODO
     }
 
     public void ResumeGame()
@@ -24,7 +25,13 @@ public class MenuButtons : MonoBehaviour
     public void StartNewGame()
     {
         ButtonSoundEffect.Play();
-        SceneManager.LoadScene(1);
+        sceneTransition.FadeToScene(1);
+    }
+
+    public void ReturnToMenu()
+    {
+        ButtonSoundEffect.Play();
+        sceneTransition.FadeToScene(0);
     }
 
     public void QuitGame()
