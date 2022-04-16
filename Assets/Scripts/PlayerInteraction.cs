@@ -17,6 +17,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] public float interactionRadius = 2.5f;
 
     [Header("Sound Effects")]
+    [SerializeField] public AudioSource correctItemSoundEffect;
     [SerializeField] public AudioSource wrongItemSoundEffect;
 
     private void Start()
@@ -34,21 +35,24 @@ public class PlayerInteraction : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit rayHit;
+        InteractableObject interactableObject;
 
         if (Physics.Raycast(ray, out rayHit, interactionRadius) && rayHit.collider.CompareTag("Interactable"))
         {
-            target = rayHit.collider.GetComponent<InteractableObject>();
-            if (rayHit.distance <= target.interactionRadius && !canInteract)
+            interactableObject = rayHit.collider.GetComponent<InteractableObject>();
+
+            if (rayHit.distance <= interactableObject.interactionRadius)
             {
-                canInteract = true;
-                HandleIconsVisibility();
+                SetTarget(interactableObject);
+            }
+            else if (canInteract)
+            {
+                SetTarget(null);
             }
         }
         else if (canInteract)
         {
-            canInteract = false;
-            target = null;
-            HandleIconsVisibility();
+            SetTarget(null);
         }
     }
 
@@ -77,6 +81,22 @@ public class PlayerInteraction : MonoBehaviour
                 inventoryUI.Close();
             }
         }
+    }
+
+    private void SetTarget(InteractableObject newTarget)
+    {
+        if (newTarget != null)
+        {
+            canInteract = true;
+            target = newTarget;
+        }
+        else
+        {
+            canInteract = false;
+            target = null;
+        }
+
+        HandleIconsVisibility();
     }
 
     private void HandleIconsVisibility()

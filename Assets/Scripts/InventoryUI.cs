@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
-    [HideInInspector] public List<InventoryItem> inventory;
-    [HideInInspector] private InteractableObject target;
+    [HideInInspector] public List<InventoryItem> inventoryItems;
+    [HideInInspector] public InteractableObject target;
     [HideInInspector] private LogText logText;
     [HideInInspector] public bool isShown;
     [HideInInspector] private Vector2 targetPosition;
+    [HideInInspector] public InventoryItemUI selectedItem;
 
     [Header("Visualization")]
     [SerializeField] private GameObject itemPrefab;
@@ -34,12 +35,12 @@ public class InventoryUI : MonoBehaviour
 
     public void AddItem(InventoryItem newItem)
     {
-        inventory.Add(newItem);
+        inventoryItems.Add(newItem);
     }
 
     public void RemoveItem(InventoryItem item)
     {
-        inventory.Remove(item);
+        inventoryItems.Remove(item);
     }
 
     public void DrawInventory(InteractableObject newTarget)
@@ -53,7 +54,7 @@ public class InventoryUI : MonoBehaviour
             Destroy(item.gameObject);
         }
 
-        foreach (InventoryItem itemData in inventory)
+        foreach (InventoryItem itemData in inventoryItems)
         {
             GameObject item = Instantiate(itemPrefab);
             item.transform.SetParent(transform);
@@ -69,20 +70,16 @@ public class InventoryUI : MonoBehaviour
     {
         isShown = false;
         targetPosition = new Vector2(transform.position.x, hiddenPosY);
+
         logText.RemoveText();
+        selectedItem = null;
+
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ApplyItemOnTarget(InventoryItem item)
     {
-        if (target != null)
-        {
-            Close();
-            target.Interact(item);
-        }
-        else
-        {
-            return; //TODO
-        }
+        Close();
+        target.Interact(item);
     }
 }

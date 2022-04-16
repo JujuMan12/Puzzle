@@ -12,12 +12,13 @@ public class SceneTransition : MonoBehaviour
     [Header("Fading")]
     [SerializeField] private Image fadingScreen;
     [SerializeField] private float fadingSpeed = 10f;
+    [SerializeField] private float fadingOffset = 0.01f;
 
     private void Update()
     {
         fadingScreen.color = Color.Lerp(fadingScreen.color, targetColor, fadingSpeed * Time.deltaTime);
 
-        if (fadingScreen.color == targetColor)
+        if (Mathf.Abs(fadingScreen.color.a - targetColor.a) <= fadingOffset)
         {
             if (newScene != null)
             {

@@ -67,7 +67,6 @@ MonoBehaviour:
   wrongItemText: I don't think it's helpful...
   analyzeText: Is it a bottle? It could be helpful...
   interactionSoundEffect: {fileID: 6289184741163850151}
-  wrongItemSoundEffect: {fileID: 0}
 --- !u!114 &6289184741163850154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +81,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 2
   inventoryName: Bottle
-  icon: {fileID: 21300000, guid: bbc53608878294d46a1e3b694ee0a1fb, type: 3}
+  inventoryIcon: {fileID: 21300000, guid: bbc53608878294d46a1e3b694ee0a1fb, type: 3}
+  combinableWith: 0
+  combinationResult: {fileID: 0}
 --- !u!82 &6289184741163850151
 AudioSource:
   m_ObjectHideFlags: 0

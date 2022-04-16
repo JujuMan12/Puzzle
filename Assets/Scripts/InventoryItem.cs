@@ -9,5 +9,9 @@ public class InventoryItem : MonoBehaviour
     [Header("Item Info")]
     [SerializeField] public ItemId itemId;
     [SerializeField] public string inventoryName;
-    [SerializeField] public Sprite icon;
+    [SerializeField] public Sprite inventoryIcon;
+
+    [Header("Combination Info")]
+    [SerializeField] public ItemId combinableWith;
+    [SerializeField] public GameObject combinationResult;
 }
