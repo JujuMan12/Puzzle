@@ -47,7 +47,7 @@ public class InventoryUI : MonoBehaviour
     {
         isShown = true;
         targetPosition = new Vector2(transform.position.x, shownPosY);
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.None;
 
         foreach (Transform item in transform)
         {

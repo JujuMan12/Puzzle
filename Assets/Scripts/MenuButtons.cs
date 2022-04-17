@@ -14,7 +14,7 @@ public class MenuButtons : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined; //TODO
+        Cursor.lockState = CursorLockMode.None; //TODO
     }
 
     public void ResumeGame()

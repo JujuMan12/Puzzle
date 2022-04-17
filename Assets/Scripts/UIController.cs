@@ -27,7 +27,7 @@ public class UIController : MonoBehaviour
         if (state)
         {
             //Time.timeScale = 0f;
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
