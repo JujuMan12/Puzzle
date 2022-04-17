@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryItem : MonoBehaviour
 {
-    [HideInInspector] public enum ItemId { none, cellKey, bottle, bottleOfWater, skull }
+    [HideInInspector] public enum ItemId { none, cellKey, bottle, bottleOfWater, skull, sword }
 
     [Header("Item Info")]
     [SerializeField] public ItemId itemId;

@@ -60,16 +60,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToInteract: {fileID: 0}
   interactionRadius: 1.5
-  requiredItem: {fileID: 0}
+  requiredItemId: 0
   noItemText: 
   wrongItemText: I don't think it's helpful...
   analyzeText: 
   interactionSoundEffect: {fileID: 4416849702435840948}
-  wrongItemSoundEffect: {fileID: 0}
-  shouldSumPosition: 1
-  shouldSumRotation: 1
   positionChange: {x: 0, y: 0, z: 0}
-  rotationChange: {x: 0, y: 60, z: 0}
+  rotationChange: {x: 0, y: 75, z: 0}
+  movementSpeed: 100
+  rotationSpeed: 100
 --- !u!82 &4416849702435840948
 AudioSource:
   m_ObjectHideFlags: 0
