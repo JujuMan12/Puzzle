@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [HideInInspector] private Transform player;
     [HideInInspector] private InventoryUI inventoryUI;
     [HideInInspector] private UIController uiController;
     [HideInInspector] private float rotationX;
 
     [Header("Mouse")]
+    [SerializeField] private Transform player;
     [SerializeField] private float mouseSensitivity = 200f;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
 
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         inventoryUI = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryUI>();
         uiController = GameObject.FindGameObjectWithTag("UI").GetComponent<UIController>();
     }

@@ -6,12 +6,12 @@ public class InventoryUI : MonoBehaviour
 {
     [HideInInspector] public List<InventoryItem> inventoryItems;
     [HideInInspector] public InteractableObject target;
-    [HideInInspector] private LogText logText;
     [HideInInspector] public bool isShown;
     [HideInInspector] private Vector2 targetPosition;
     [HideInInspector] public InventoryItemUI selectedItem;
 
     [Header("Visualization")]
+    [SerializeField] private LogText logText;
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] private float shownPosY = 200f;
     [SerializeField] private float hiddenPosY = -145f;
@@ -19,7 +19,6 @@ public class InventoryUI : MonoBehaviour
 
     private void Start()
     {
-        logText = GameObject.FindGameObjectWithTag("Log").GetComponent<LogText>();
         targetPosition = new Vector2(transform.position.x, hiddenPosY);
     }
 
@@ -61,6 +60,8 @@ public class InventoryUI : MonoBehaviour
 
             InventoryItemUI itemUI = item.GetComponent<InventoryItemUI>();
             itemUI.inventoryItem = itemData;
+            itemUI.inventory = this;
+            itemUI.logText = logText;
         }
 
         target = newTarget;

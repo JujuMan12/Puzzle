@@ -13,7 +13,8 @@ public class PlayerInteraction : MonoBehaviour
     [HideInInspector] private Image analyzeIcon;
     [HideInInspector] private bool canInteract;
 
-    [Header("Parameters")]
+    [Header("Interaction")]
+    [SerializeField] private Camera gameCamera;
     [SerializeField] public float interactionRadius = 2.5f;
 
     [Header("Sound Effects")]
@@ -28,32 +29,12 @@ public class PlayerInteraction : MonoBehaviour
         inventoryIcon = GameObject.FindGameObjectWithTag("Inventory Icon").GetComponent<Image>();
         analyzeIcon = GameObject.FindGameObjectWithTag("Analyze Icon").GetComponent<Image>();
 
-        HandleIconsVisibility();
+        UpdateIcons();
     }
 
     private void FixedUpdate()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit rayHit;
-        InteractableObject interactableObject;
-
-        if (Physics.Raycast(ray, out rayHit, interactionRadius) && rayHit.collider.CompareTag("Interactable"))
-        {
-            interactableObject = rayHit.collider.GetComponent<InteractableObject>();
-
-            if (rayHit.distance <= interactableObject.interactionRadius)
-            {
-                SetTarget(interactableObject);
-            }
-            else if (canInteract)
-            {
-                SetTarget(null);
-            }
-        }
-        else if (canInteract)
-        {
-            SetTarget(null);
-        }
+        CheckInteraction();
     }
 
     private void Update()
@@ -83,23 +64,37 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    private void SetTarget(InteractableObject newTarget)
+    private void CheckInteraction()
     {
-        if (newTarget != null)
+        Ray ray = gameCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit rayHit;
+
+        if (Physics.Raycast(ray, out rayHit, interactionRadius) && rayHit.collider.CompareTag("Interactable"))
         {
-            canInteract = true;
-            target = newTarget;
-        }
-        else
-        {
-            canInteract = false;
-            target = null;
+            InteractableObject intObj = rayHit.collider.GetComponent<InteractableObject>();
+
+            if (rayHit.distance <= intObj.interactionRadius)
+            {
+                SetTarget(intObj);
+                return;
+            }
         }
 
-        HandleIconsVisibility();
+        if (canInteract)
+        {
+            SetTarget(null);
+        }
     }
 
-    private void HandleIconsVisibility()
+    private void SetTarget(InteractableObject newTarget)
+    {
+        canInteract = !!newTarget;
+        target = newTarget;
+
+        UpdateIcons();
+    }
+
+    private void UpdateIcons()
     {
         Color interactIconColor = interactIcon.color;
         Color inventoryIconColor = inventoryIcon.color;
@@ -108,6 +103,7 @@ public class PlayerInteraction : MonoBehaviour
         if (canInteract)
         {
             interactIconColor.a = 1f;
+
             if (target.requiredItemId != InventoryItem.ItemId.none)
             {
                 inventoryIconColor.a = 1f;

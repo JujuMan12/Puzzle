@@ -8,13 +8,14 @@ public class InventoryItemUI : MonoBehaviour, IPointerEnterHandler
 {
     [HideInInspector] public InventoryItem inventoryItem;
     [HideInInspector] public InventoryUI inventory;
-    [HideInInspector] private LogText logText;
+    [HideInInspector] public LogText logText;
+
+    [Header("Components")]
+    [SerializeField] private Image icon;
 
     private void Start()
     {
-        GetComponent<Image>().sprite = inventoryItem.inventoryIcon;
-        inventory = transform.parent.GetComponent<InventoryUI>();
-        logText = GameObject.FindGameObjectWithTag("Log").GetComponent<LogText>();
+        icon.sprite = inventoryItem.inventoryIcon;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

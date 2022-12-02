@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [HideInInspector] private CharacterController controller;
     [HideInInspector] private InventoryUI inventoryUI;
     [HideInInspector] private UIController uiController;
     [HideInInspector] private Vector3 velocity;
@@ -12,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] private bool isCrouching;
 
     [Header("Characteristics")]
+    [SerializeField] private CharacterController controller;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float sprintMult = 2f;
     [SerializeField] private float crouchMult = 0.5f;
@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        controller = GetComponent<CharacterController>();
         inventoryUI = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryUI>();
         uiController = GameObject.FindGameObjectWithTag("UI").GetComponent<UIController>();
         defaultHeight = transform.localScale.y;

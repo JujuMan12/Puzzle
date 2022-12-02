@@ -11,8 +11,13 @@ public class SceneTransition : MonoBehaviour
 
     [Header("Fading")]
     [SerializeField] private Image fadingScreen;
-    [SerializeField] private float fadingSpeed = 10f;
+    [SerializeField] private float fadingSpeed = 1f;
     [SerializeField] private float fadingOffset = 0.01f;
+
+    private void Start()
+    {
+        fadingScreen.color = Color.black;
+    }
 
     private void Update()
     {
@@ -36,5 +41,6 @@ public class SceneTransition : MonoBehaviour
         gameObject.SetActive(true);
         targetColor = Color.black;
         newScene = scene;
+        fadingSpeed = 2f;
     }
 }
